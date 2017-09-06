@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>USBC操作DEMO</title>
+</head>
+<body>
+  设备ID <input type="text" id="devID" value="0" />
+  USB口序号 <input type="text" id="portNO" value="0" />
+  <p>
+    <input type="button" onclick="USBC_post()" value="设备自检" />
+    <input type="button" onclick="USBC_select()" value="USB口选择" />
+  </p>
+  <script src="http://code.jquery.com/jquery-1.4.1.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    function USBC_post()
+    {
+      window.open('leowebcmd://usbc/post');
+      
+    }
+  </script>
+  <script type="text/javascript">
+    function USBC_select()
+    {
+      var devID = document.getElementById('devID').value;
+      var portNO = document.getElementById('portNO').value;
+      var url = "leowebcmd://usbc/select?dev=" + devID + "&port=" + portNO;
+      window.open(url);
+    }
+  </script>
+</body>
+</html>
